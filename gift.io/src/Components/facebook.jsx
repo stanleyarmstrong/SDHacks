@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FacebookLogin from 'react-facebook-login';
+import Profile from './profile';
 
 export default class Facebook extends Component {
     state = {
@@ -7,7 +8,8 @@ export default class Facebook extends Component {
         userID: '',
         name: '',
         email: '',
-        picture: ''
+        picture: '',
+        user_friends: ''
     }
     responseFacebook = (response) => {
         this.setState({
@@ -15,8 +17,8 @@ export default class Facebook extends Component {
             userID: response.userID,
             name: response.name, 
             email: response.email, 
-            picture: response.picture.data.url 
-
+            picture: response.picture.data.url,
+            user_friends: response.user_friends 
         });
     }
     componentClicked = () => console.log('Clicked');
@@ -25,16 +27,7 @@ export default class Facebook extends Component {
 
         if (this.state.isLoggedIn) {
             fbConnect = (
-                <div style={{
-                    width: '400px', 
-                    margin: 'auto', 
-                    background: '#f4f4f4',
-                    padding: '20px'
-                }}>
-                    <img src={this.state.picture} alt={this.state.name}/>
-                    <h2> Welcome, {this.state.name} </h2> 
-                    Email: {this.state.email} 
-                </div>
+                <Profile/>
             );
         } else {
             fbConnect = (
@@ -42,6 +35,7 @@ export default class Facebook extends Component {
                 appId="2159173847428140"
                 autoLoad={true}
                 fields="name,email,picture"
+                scope="user_friends"
                 onClick={this.componentClicked}
                 callback={this.responseFacebook} />
             )

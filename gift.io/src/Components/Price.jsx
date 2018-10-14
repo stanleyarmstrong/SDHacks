@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Price extends React.Component {
     state = {
-        Lower: parseInt('10',10)
+        Lower: parseInt('10',10),
         Upper: parseInt('100',10)
     }
     change = e =>{
@@ -13,24 +13,22 @@ export default class Price extends React.Component {
     };
     render() {
         return (
-        <lower>
+    <price>
           <input
           name="lowerLimit"
           placeholder='Lower Limit?'
           value={this.state.lower}
           onChange={e => this.change(e)}
           />
-        </lower>
-        <br />
-        <upper>
           <input
           name="upperLimit"
           placeholder="Upper Limit?"
           value={this.state.upper}
           onChange={e => this.change(e)}
           />
-        </upper>
+    
         <button onClick={e =>this.onSubmit()}>Submit</button>
+    </price>
                ); 
     }
 

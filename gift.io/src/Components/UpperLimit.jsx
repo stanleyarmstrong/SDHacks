@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UpperLimit extends React.Component {
+export default class UpperLimit extends React.Component {
     state = {
         number: ''
     }
@@ -14,4 +14,3 @@ class UpperLimit extends React.Component {
     }
 
 }
-export{ UpperLimit }

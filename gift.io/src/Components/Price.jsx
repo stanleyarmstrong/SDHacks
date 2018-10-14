@@ -13,6 +13,7 @@ export default class Price extends React.Component {
     };
     onSubmit = e => {
         e.preventDefault();
+        this.props.onSubmit()
         console.log(this.state);
     };
     render() {

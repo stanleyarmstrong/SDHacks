@@ -13,7 +13,7 @@ export default class Price extends React.Component {
     };
     onSubmit = e => {
         e.preventDefault();
-        this.props.onSubmit()
+        this.props.onSubmit(this.state);
         console.log(this.state);
     };
     render() {
@@ -32,7 +32,7 @@ export default class Price extends React.Component {
           onChange={e => this.change(e)}
           />
     
-        <button onClick={e =>this.onSubmit()}>Submit</button>
+        <button onClick={e =>this.onSubmit(e)}>Submit</button>
     </price>
                ); 
     }
